@@ -69,3 +69,4 @@ D:\1_FPTU\Semester_8\PRN231\Coding_On_Class\1_Practice\Practice_1\bin\Debug\net6
 D:\1_FPTU\Semester_8\PRN231\Coding_On_Class\1_Practice\Practice_1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\1_FPTU\Semester_8\PRN231\Coding_On_Class\1_Practice\Practice_1\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\1_FPTU\Semester_8\PRN231\Coding_On_Class\1_Practice\Practice_1\obj\Debug\net6.0\Practice_1.MvcApplicationPartsAssemblyInfo.cs
+D:\1_FPTU\Semester_8\PRN231\Coding_On_Class\1_Practice\Practice_1\obj\Debug\net6.0\Practice_1.sourcelink.json

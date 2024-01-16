@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Practice_1.Models;
+using System.Data;
 
 namespace Practice_1.Controllers
 {
@@ -29,6 +31,35 @@ namespace Practice_1.Controllers
             var products = await _context.Products
             .Include(p => p.Category)
             .ToListAsync();
+
+            var productDTOs = _mapper.Map<IEnumerable<ProductDTO>>(products);
+
+            return Ok(productDTOs);
+        }
+
+        //Sort product
+        [HttpGet("SortProduct")]
+        public async Task<ActionResult<IEnumerable<ProductDTO>>> SortProduct([FromQuery] string sort, [FromQuery] string order)
+        {
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+
+            var sqlQuery = $"SELECT * FROM Products ORDER BY {sort} {order}";
+            IEnumerable<Product> products;
+            try
+            {
+                products = await _context.Products
+                .FromSqlRaw(sqlQuery)
+                //.Include(p => p.Category)
+                .ToListAsync();
+            }
+            catch (Exception)
+            {
+                return BadRequest("Check param again");
+            }
+            
 
             var productDTOs = _mapper.Map<IEnumerable<ProductDTO>>(products);
 
